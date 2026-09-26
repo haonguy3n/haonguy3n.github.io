@@ -1,4 +1,60 @@
 ---
-layout: home
-# Index page
+layout: page
+title: Hao Nguyen
+# Landing page - a short introduction. The full post list lives on the Archives tab.
 ---
+
+<p>
+  Hi, I'm <strong>Hao Nguyen</strong> — an embedded software engineer. I work close to the
+  hardware: firmware, device drivers, and the layers that turn a bare board into something
+  people can actually use.
+</p>
+
+<p>
+  This site is where I keep notes on what I'm building and learning — debugging sessions worth
+  remembering, tooling that saved me a week, and the occasional writeup of a project.
+</p>
+
+<h2 id="what-i-work-on">What I work on</h2>
+
+<ul>
+  <li><strong>Firmware</strong> — bare-metal and RTOS-based applications on microcontrollers.</li>
+  <li><strong>Drivers &amp; peripherals</strong> — I2C, SPI, UART, CAN, GPIO, timers, DMA.</li>
+  <li><strong>C and C++</strong> for production firmware, Python for tooling and test automation.</li>
+  <li><strong>Debugging on real hardware</strong> — JTAG/SWD, logic analyzers, oscilloscopes.</li>
+  <li><strong>Build &amp; release</strong> — cross-compilation, CI for embedded targets, unit tests on host.</li>
+</ul>
+
+<!--
+  TODO (Hao): make this section yours.
+  Swap in the specific chips, RTOS, and stacks you actually use — for example
+  STM32 / ESP32 / NXP, FreeRTOS / Zephyr, BLE, Modbus, AUTOSAR, Yocto, Linux kernel modules.
+  Concrete names are what make a page like this credible.
+-->
+
+<h2 id="latest-posts">Latest posts</h2>
+
+{% if site.posts.size > 0 %}
+  <ul>
+    {% for post in site.posts limit: 5 %}
+      <li>
+        <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+        <br />
+        <small>{{ post.date | date: '%b %d, %Y' }}</small>
+      </li>
+    {% endfor %}
+  </ul>
+  <p><a href="{{ '/archives/' | relative_url }}">Browse all posts →</a></p>
+{% else %}
+  <p>Nothing published yet — the first post is on its way.</p>
+{% endif %}
+
+<h2 id="elsewhere">Elsewhere</h2>
+
+<ul>
+  <li><a href="https://github.com/haonguy3n">GitHub</a> — code and side projects.</li>
+  <li><a href="https://www.linkedin.com/in/hao-nguyen-018961202/">LinkedIn</a> — work history.</li>
+  <li><a href="mailto:{{ site.social.email }}">{{ site.social.email }}</a> — the fastest way to reach me.</li>
+</ul>
+
+<p><a href="{{ '/about/' | relative_url }}">More about me →</a></p>
