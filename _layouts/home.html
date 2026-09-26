@@ -1,0 +1,16 @@
+---
+layout: default
+---
+
+<!--
+  Replaces the theme's paginated post feed: the homepage is a profile landing page,
+  and the full post list lives on the Archives tab.
+  The name `home` matters - Chirpy only gives the `home` layout a bare site title
+  ("Hao Nguyen" instead of "... | Hao Nguyen") and the active Home item in the sidebar.
+-->
+<article class="px-1">
+  <h1 class="dynamic-title">{{ site.title }}</h1>
+  <div class="content">
+    {{ content }}
+  </div>
+</article>
