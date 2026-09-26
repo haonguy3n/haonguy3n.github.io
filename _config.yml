@@ -16,10 +16,10 @@ timezone: Asia/Ho_Chi_Minh
 
 title: Hao Nguyen # the main title
 
-tagline: Notes, projects, and things I'm learning. # it will display as the subtitle
+tagline: Embedded Linux, Yocto & platform security. # it will display as the subtitle
 
 description: >- # used by seo meta and the atom feed
-  Personal site of Hao Nguyen - projects, notes, and writing.
+  Hao Nguyen - senior embedded software engineer working on embedded Linux, Yocto, Secure Boot and OTA updates.
 
 # Fill in the protocol & hostname for your site.
 # E.g. 'https://username.github.io', note that it does not end with a '/'.

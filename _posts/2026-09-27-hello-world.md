@@ -2,25 +2,27 @@
 title: "Hello, world"
 date: 2026-09-27 10:00:00 +0700
 categories: [Meta]
-tags: [embedded, writing]
+tags: [embedded-linux, yocto]
 description: Why I'm starting this site, and what I plan to put on it.
 pin: true
 ---
 
-Every embedded project I've worked on has produced the same artifact: a scratch file full of
-hard-won details. The magic register write that the datasheet mentions once. The reason the
-bootloader hangs if you enable the watchdog too early. The exact `openocd` invocation that works
-with this particular probe.
+Every platform project I've worked on leaves behind the same thing: a scratch file of details
+that took days to find. Which layer a BitBake variable actually has to be set in. What changed in
+the boot chain when Secure Boot was turned on. Which OTA state a device can't recover from if it
+loses power at the wrong moment.
 
-Those files never leave my machine, and six months later I can't find them either. So: this site.
+Those notes never leave my machine, and six months later I can't find them either. So: this site.
 
 ## What I'll write about
 
+- **Yocto in practice** — BSP integration, meta-layer structure, and keeping builds reproducible
+  across boards and SoC vendors.
+- **Secure Boot and device hardening** — boot chains, disk encryption, dm-verity, read-only root
+  filesystems, and secure elements.
+- **OTA updates** — A/B pipelines with Mender and SWUpdate, and upgrading devices that are
+  already deployed in the field.
 - **Debugging stories** — a symptom, the wrong theories I chased, and what it actually was.
-  These are the posts I'd most want to read from someone else.
-- **Bring-up notes** — getting a new board, MCU, or RTOS to the point where it blinks and talks.
-- **Tooling** — build setups, host-side testing, and making CI useful for firmware.
-- **Things I got wrong** — the mistakes are usually more instructive than the fixes.
 
 ## How to reach me
 

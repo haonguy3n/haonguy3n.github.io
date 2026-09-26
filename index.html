@@ -4,32 +4,47 @@ layout: home
 ---
 
 <p>
-  Hi, I'm <strong>Hao Nguyen</strong> — an embedded software engineer. I work close to the
-  hardware: firmware, device drivers, and the layers that turn a bare board into something
-  people can actually use.
+  Hi, I'm <strong>Hao Nguyen</strong> — a senior embedded software engineer working on
+  embedded Linux. I own the platform layer of connected devices: the Yocto build, the boot
+  chain, Secure Boot and disk encryption, and the OTA pipeline that keeps a deployed fleet
+  updatable without bricking it.
 </p>
 
 <p>
-  This site is where I keep notes on what I'm building and learning — debugging sessions worth
-  remembering, tooling that saved me a week, and the occasional writeup of a project.
+  Over the past 4+ years I've shipped production firmware for security cameras, drones, and
+  IoT devices on NVIDIA Jetson, Ambarella, and NXP i.MX. This site is where I write down what
+  I learn along the way — the details that took days to find and that I don't want to find twice.
 </p>
 
 <h2 id="what-i-work-on">What I work on</h2>
 
 <ul>
-  <li><strong>Firmware</strong> — bare-metal and RTOS-based applications on microcontrollers.</li>
-  <li><strong>Drivers &amp; peripherals</strong> — I2C, SPI, UART, CAN, GPIO, timers, DMA.</li>
-  <li><strong>C and C++</strong> for production firmware, Python for tooling and test automation.</li>
-  <li><strong>Debugging on real hardware</strong> — JTAG/SWD, logic analyzers, oscilloscopes.</li>
-  <li><strong>Build &amp; release</strong> — cross-compilation, CI for embedded targets, unit tests on host.</li>
+  <li><strong>Yocto / OpenEmbedded</strong> — BSPs, meta-layers, and custom distributions (meta-tegra, Ambarella SDK, NXP i.MX).</li>
+  <li><strong>Platform security</strong> — Secure Boot (UEFI, signed UKI), full-disk encryption, dm-verity, read-only rootfs, secure elements.</li>
+  <li><strong>OTA updates</strong> — A/B pipelines with Mender and SWUpdate, including rollback and upgrades of devices already in the field.</li>
+  <li><strong>Languages</strong> — C, C++17/20, Python, Bash, Go.</li>
+  <li><strong>Hardware</strong> — NVIDIA Jetson Orin, Ambarella, NXP i.MX6UL, SigmaStar, Raspberry Pi, BeagleBone.</li>
 </ul>
 
-<!--
-  TODO (Hao): make this section yours.
-  Swap in the specific chips, RTOS, and stacks you actually use — for example
-  STM32 / ESP32 / NXP, FreeRTOS / Zephyr, BLE, Modbus, AUTOSAR, Yocto, Linux kernel modules.
-  Concrete names are what make a page like this credible.
--->
+<h2 id="projects">Projects</h2>
+
+<ul>
+  <li>
+    <a href="https://github.com/haonguy3n/orin-nx-camera-app"><strong>orin-nx-camera-app</strong></a>
+    — dual-sensor MIPI camera software for Jetson Orin NX: hardware H.265 streaming over an
+    encrypted USB transport, on-device GPU face detection, and A/B OTA via SWUpdate.
+  </li>
+  <li>
+    <a href="https://github.com/haonguy3n/se05x"><strong>se05x</strong></a>
+    — provisioning CLI for the NXP SE05x secure element: on-chip key generation, CSR and
+    certificate binding, exposed through PKCS#11.
+  </li>
+  <li>
+    <a href="https://github.com/haonguy3n/osb"><strong>osb</strong></a>
+    — single-binary OS builder for bootable Alpine / Debian / Ubuntu images with signed UKI
+    Secure Boot, dm-verity, A/B rollback, and reproducible builds.
+  </li>
+</ul>
 
 <h2 id="latest-posts">Latest posts</h2>
 
