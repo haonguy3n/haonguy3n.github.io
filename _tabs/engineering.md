@@ -1,6 +1,8 @@
 ---
 title: Coding rules and PR checklist
 layout: page
+icon: fas fa-code
+order: 7
 permalink: /engineering/
 toc: true
 tags: [engineering, process]
