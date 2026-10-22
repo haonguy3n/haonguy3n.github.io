@@ -31,10 +31,10 @@ tabs:
   engineering: Engineering
   cpp: C++ Patterns
   "c++ patterns": C++ Patterns
-  "c++ patterns: structure": C++ patterns: structure
-  "c++ patterns: behavior": C++ patterns: behavior
-  "c++ patterns: creation": C++ patterns: creation
-  "c++ patterns: data and flow": C++ patterns: data and flow
+  "c++ patterns: structure": "C++ patterns: structure"
+  "c++ patterns: behavior": "C++ patterns: behavior"
+  "c++ patterns: creation": "C++ patterns: creation"
+  "c++ patterns: data and flow": "C++ patterns: data and flow"
   "c++ idioms": C++ idioms
 
 # the text displayed in the search bar & search results
