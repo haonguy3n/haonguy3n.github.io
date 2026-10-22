@@ -119,6 +119,9 @@ verification and rollback sections.
 - [ ] The rollback has been thought through
 ```
 
+The code shapes behind these rules are collected in [C++ patterns]({{ '/cpp/' | relative_url }}):
+ownership, seams, state, builders, leases and the idioms that keep them safe.
+
 ## For the reviewer
 
 - **Does it do one thing?** If the description needs “and”, ask for a split.
