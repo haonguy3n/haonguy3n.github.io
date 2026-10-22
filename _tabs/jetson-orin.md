@@ -32,8 +32,10 @@ sees it.
   <div class="jo-step"><strong>Answer</strong><span>boxes, classes, text</span></div>
 </div>
 
-## Two trails
+## Trails
 
+- [Delta updates on Jetson Orin]({{ '/jetson-orin/delta-updates/' | relative_url }}) — read-only root,
+  raw ext4, A/B slots, SWUpdate/RAUC, and how to generate X → Y safely.
 - [Inference on Jetson Orin]({{ '/jetson-orin/inference/' | relative_url }}) — what a TensorRT build
   actually does, why build memory is much larger than the finished plan, how to validate FP16/INT8, and how to
   keep a plan cache honest.

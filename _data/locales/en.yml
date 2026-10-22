@@ -27,6 +27,7 @@ tabs:
   "jetson orin": Jetson Orin
   "inference on jetson orin": Inference on Jetson Orin
   "camera frames on jetson orin": Camera frames on Jetson Orin
+  "delta updates on jetson orin": Delta updates on Jetson Orin
   "coding rules and pr checklist": Coding rules and PR checklist
   engineering: Engineering
   cpp: C++ Patterns
