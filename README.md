@@ -1,39 +1,35 @@
-# Chirpy Starter
+# haonguy3n.github.io
 
-[![Gem Version](https://img.shields.io/gem/v/jekyll-theme-chirpy)][gem]&nbsp;
-[![GitHub license](https://img.shields.io/github/license/cotes2020/chirpy-starter.svg?color=blue)][mit]
+[Live site](https://haonguy3n.github.io/) ·
+[![Build and Deploy](https://github.com/haonguy3n/haonguy3n.github.io/actions/workflows/pages-deploy.yml/badge.svg?branch=main)](https://github.com/haonguy3n/haonguy3n.github.io/actions/workflows/pages-deploy.yml)
 
-A minimal, ready-to-use template for creating a blog with the [**Chirpy**][chirpy] Jekyll theme. Get up and running in minutes with all critical files pre-configured.
+My personal site: notes on embedded Linux, platform security, and the edge-vision work I do on
+NVIDIA Jetson Orin.
 
-## Why This Starter Exists
+## What is here
 
-When installing Chirpy through [RubyGems.org][gem], Jekyll can only read a subset of theme files (`_data`, `_layouts`, `_includes`, `_sass`, `assets`) and limited `_config.yml` options from the gem. As a result, users cannot enjoy the full out-of-the-box experience that Chirpy offers.
+- `_tabs/ml.md` — *Machine Learning on the Edge*, a field guide from ONNX to a CPU, GPU or NPU.
+- `_tabs/jetson-orin.md` + `jetson-orin/` — TensorRT inference, precision and memory, and a
+  sensor-to-GPU frame path that stays in NVMM.
+- `_tabs/engineering.md` — coding rules and a copy-paste PR checklist.
+- `_posts/` — short notes, including the launch note for the Jetson Orin section.
+- `_includes/jetson-orin-style.html` — the responsive flow-box styles used by the notes.
 
-To unlock all features, the following files must be present in your Jekyll site:
+## Build locally
 
-```shell
-.
-├── _config.yml
-├── _plugins
-├── _tabs
-└── index.html
+```sh
+bundle install
+bundle exec jekyll serve
 ```
 
-This starter bundles those files from the latest **Chirpy** release along with a [CD][CD] workflow, so you can start writing immediately.
+## Deployment
 
-## Usage
-
-Check out the [theme's docs](https://github.com/cotes2020/jekyll-theme-chirpy/wiki).
-
-## Contributing
-
-This repository is automatically updated with new releases from the theme repository. If you encounter any issues or want to contribute to its improvement, please visit the [theme repository][chirpy] to provide feedback.
+`.github/workflows/pages-deploy.yml` runs on content changes to `main`: it builds the site with
+Jekyll, runs `html-proofer`, uploads the artifact and deploys it to GitHub Pages. A README-only
+change is intentionally ignored by the workflow, so the badge above reflects the last content
+build.
 
 ## License
 
-This work is published under [MIT][mit] License.
-
-[gem]: https://rubygems.org/gems/jekyll-theme-chirpy
-[chirpy]: https://github.com/cotes2020/jekyll-theme-chirpy/
-[CD]: https://en.wikipedia.org/wiki/Continuous_deployment
-[mit]: https://github.com/cotes2020/chirpy-starter/blob/master/LICENSE
+The site content is published under CC BY 4.0; the Chirpy theme is MIT. See `LICENSE` for the
+theme licence.
