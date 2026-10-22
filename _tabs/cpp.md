@@ -28,13 +28,13 @@ description: >-
 
 ## The map
 
-| Group | Patterns | Page |
-|---|---|---|
-| Structure | Interfaces and adapters (Ports & Adapters), Adapter, Proxy, Facade, Pimpl | [Structure]({{ '/cpp/structure/' | relative_url }}) |
-| Behavior | Strategy, State, Observer, Template Method, Bounded queue between threads, Worker thread with a command queue | [Behavior]({{ '/cpp/behavior/' | relative_url }}) |
-| Creation | Builder, Factory, Registry, Object Pool, RAII handle | [Creation]({{ '/cpp/creation/' | relative_url }}) |
-| Data and flow | Value type, Store / cache, Rule object, Pipeline, Do-nothing implementation, One place that builds the objects | [Data and flow]({{ '/cpp/data/' | relative_url }}) |
-| C++ idioms | Rule of Zero/Five, `std::expected`, value semantics, views, type erasure, zero-copy | [Idioms]({{ '/cpp/idioms/' | relative_url }}) |
+| Group | Patterns |
+|---|---|
+| [Structure]({{ '/cpp/structure/' | relative_url }}) | Interfaces and adapters (Ports & Adapters), Adapter, Proxy, Facade, Pimpl |
+| [Behavior]({{ '/cpp/behavior/' | relative_url }}) | Strategy, State, Observer, Template Method, Bounded queue between threads, Worker thread with a command queue |
+| [Creation]({{ '/cpp/creation/' | relative_url }}) | Builder, Factory, Registry, Object Pool, RAII handle |
+| [Data and flow]({{ '/cpp/data/' | relative_url }}) | Value type, Store / cache, Rule object, Pipeline, Do-nothing implementation, One place that builds the objects |
+| [C++ idioms]({{ '/cpp/idioms/' | relative_url }}) | Rule of Zero/Five, `std::expected`, value semantics, views, type erasure, zero-copy |
 
 ## How to use this
 
