@@ -12,7 +12,6 @@ description: >-
 
 <p class="jo-back"><a href="{{ '/jetson-orin/' | relative_url }}">← Jetson Orin notes</a></p>
 
-# Inference on Jetson Orin: from ONNX to a plan
 
 > The short version: an ONNX file is source code, a TensorRT plan is a binary for one device and one set of
 > shapes and precision, and the builder is a compiler that can use several times the memory of the binary it

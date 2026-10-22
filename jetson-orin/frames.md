@@ -12,7 +12,6 @@ description: >-
 
 <p class="jo-back"><a href="{{ '/jetson-orin/' | relative_url }}">← Jetson Orin notes</a></p>
 
-# Camera frames on Jetson Orin: keep them in NVMM
 
 > The goal is simple to state and easy to lose: the sensor buffer should reach the GPU and the model
 > without a CPU copy of the pixels. The hard part is not the first step; it is proving that every consumer

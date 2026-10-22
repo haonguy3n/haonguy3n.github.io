@@ -11,7 +11,6 @@ description: >-
 
 {% include jetson-orin-style.html %}
 
-# Jetson Orin notes
 
 > These are generic engineering notes from building edge vision systems on Orin-class devices.
 > They deliberately leave out product details, customer information, model names and private code.
