@@ -1,6 +1,6 @@
 ---
 title: "Jetson Orin notes: inference and the frame path"
-date: 2026-10-22 14:15:00 +0700
+date: 2026-10-22 14:00:00 +0700
 categories: [Embedded Linux]
 tags: [jetson, machine-learning]
 description: >-
