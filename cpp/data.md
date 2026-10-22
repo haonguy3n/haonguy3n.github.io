@@ -5,8 +5,8 @@ permalink: /cpp/data/
 toc: true
 tags: [cpp, patterns]
 description: >-
-  Value objects, repositories and caches, specifications, pipelines, null objects and dependency
-  injection: the patterns that keep data and decisions in one place.
+  Value types, stores and caches, rule objects, pipelines, do-nothing implementations and one place
+  that builds the objects: the patterns that keep data and decisions in one place.
 ---
 
 {% include jetson-orin-style.html %}
@@ -16,7 +16,9 @@ description: >-
 > Data and flow patterns are about **what is a value, what is a policy, and where the data goes
 > next**. They remove the "same condition in five files" problem.
 
-## Value Object
+## Value type
+
+*Also called: Value Object. Two values with the same fields are equal and interchangeable.*
 
 **Problem:** a key or a configuration is passed as a bag of strings and integers; equality, hashing
 and validation are repeated (and sometimes disagree).
@@ -47,7 +49,9 @@ object for a temporary pair used once.
 **Trade-off:** a value object is copied; keep it small or pass it by `const&`. Equality must include
 every field that changes the result.
 
-## Repository / Cache
+## Store / cache
+
+*Also called: Repository / Cache. The store hides the file layout; the cache hides the lookup policy.*
 
 **Problem:** the code needs an object from disk or a plan from a cache, but the callers should not
 know the file layout, hashing or eviction rules.
@@ -77,7 +81,9 @@ repository over a single `ifstream` used in one function.
 **Trade-off:** a cache must define staleness, ownership and concurrency. A cache that never evicts
 is a leak with a nicer name.
 
-## Specification
+## Rule object
+
+*Also called: Specification. It is a named predicate that can be tested and logged.*
 
 **Problem:** a decision ("is this model used?") is a set of rules that must be testable, composable
 and explainable in a log.
@@ -85,14 +91,14 @@ and explainable in a log.
 **Shape:** a named predicate object; composition with `and`, `or`, `not`.
 
 ```cpp
-class ISpecification {
+class IRule {
 public:
-    virtual ~ISpecification() = default;
+    virtual ~IRule() = default;
     virtual bool Matches(const Profile& profile) const = 0;
     virtual std::string Describe() const = 0;
 };
 
-class KeyIsSet final : public ISpecification {
+class KeyIsSet final : public IRule {
 public:
     KeyIsSet(std::string section, std::string key)
         : m_section(std::move(section)), m_key(std::move(key)) {}
@@ -112,7 +118,9 @@ for one `if`; a function is enough.
 **Trade-off:** a predicate object per rule can be many small types; a table of rules with a name is
 often simpler. The important part is one source of truth, not the class count.
 
-## Pipeline / Chain
+## Pipeline
+
+*A pipeline is a chain of filters; each filter takes a value and returns the next value or an error.*
 
 **Problem:** a frame passes through a fixed sequence of steps (decode, resize, normalize, infer),
 and each step can fail or drop the frame.
@@ -150,7 +158,9 @@ for two steps that will never be reordered; a function call is clearer.
 move-aware. Use a frame view/lease (see [Idioms]({{ '/cpp/idioms/' | relative_url }})) and define
 the failure policy: stop, skip or drop.
 
-## Null Object
+## Do-nothing implementation
+
+*Also called: Null Object. It is useful when absence is normal; it must not hide a configuration error.*
 
 **Problem:** "no logger", "no viewer" or "this manager was skipped" is a normal state, and every
 caller should not need a null check.
@@ -169,7 +179,9 @@ hides a configuration mistake which should be an error.
 
 **Trade-off:** a no-op can make a missing dependency silent. Log once at construction, not per call.
 
-## Dependency Injection / Composition Root
+## One place that builds the objects
+
+*Also called: dependency injection, with a composition root. The graph is built once at the edge.*
 
 **Problem:** a class creates its own dependencies, so it cannot be tested and its lifetime is
 hidden.

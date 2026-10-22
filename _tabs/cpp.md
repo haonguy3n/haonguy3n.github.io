@@ -6,15 +6,15 @@ order: 8
 toc: true
 tags: [cpp, patterns]
 description: >-
-  The C++ patterns used in this project, with small examples: ports and adapters, strategy, state,
-  builder, proxy, RAII leases, pools, caches, specifications, pipelines and the idioms around them.
+  The C++ patterns used in this project, with small examples: interfaces and adapters, strategy, state,
+  builder, proxy, RAII handles, pools, caches, rule objects, pipelines and the idioms around them.
 ---
 
 {% include jetson-orin-style.html %}
 
-> Patterns are a shared vocabulary, not a checklist. Each note below says what problem the pattern
-> solves, where it fits in this codebase, a small C++23 example, and when the pattern is the wrong
-> answer. The examples are simplified and generic; no private code, paths or customer details.
+> Patterns are a shared vocabulary, not a checklist. The heading is the common name; the formal
+> pattern name is in parentheses. Each note says what problem it solves, where it fits in this
+> codebase, a small C++23 example, and when the pattern is the wrong answer. The examples are simplified and generic; no private code, paths or customer details.
 
 <div class="jo-flow">
   <div class="jo-step"><strong>Rule</strong><span>small change, one owner, test the failure</span></div>
@@ -30,10 +30,10 @@ description: >-
 
 | Group | Patterns | Page |
 |---|---|---|
-| Structure | Ports & Adapters, Adapter, Proxy, Facade, Pimpl | [Structure]({{ '/cpp/structure/' | relative_url }}) |
-| Behavior | Strategy, State, Observer, Template Method, Producer–Consumer, Active Object / Command | [Behavior]({{ '/cpp/behavior/' | relative_url }}) |
-| Creation | Builder, Factory, Registry, Object Pool, RAII / Lease | [Creation]({{ '/cpp/creation/' | relative_url }}) |
-| Data and flow | Value Object, Repository / Cache, Specification, Pipeline, Null Object, Dependency Injection | [Data and flow]({{ '/cpp/data/' | relative_url }}) |
+| Structure | Interfaces and adapters (Ports & Adapters), Adapter, Proxy, Facade, Pimpl | [Structure]({{ '/cpp/structure/' | relative_url }}) |
+| Behavior | Strategy, State, Observer, Template Method, Bounded queue between threads, Worker thread with a command queue | [Behavior]({{ '/cpp/behavior/' | relative_url }}) |
+| Creation | Builder, Factory, Registry, Object Pool, RAII handle | [Creation]({{ '/cpp/creation/' | relative_url }}) |
+| Data and flow | Value type, Store / cache, Rule object, Pipeline, Do-nothing implementation, One place that builds the objects | [Data and flow]({{ '/cpp/data/' | relative_url }}) |
 | C++ idioms | Rule of Zero/Five, `std::expected`, value semantics, views, type erasure, zero-copy | [Idioms]({{ '/cpp/idioms/' | relative_url }}) |
 
 ## How to use this

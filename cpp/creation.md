@@ -5,7 +5,7 @@ permalink: /cpp/creation/
 toc: true
 tags: [cpp, patterns]
 description: >-
-  Builder, factory, registry, object pool and RAII leases, with the ownership rules that keep
+  Builder, factory, registry, object pool and RAII handles, with the ownership rules that keep
   construction, caching and device memory predictable.
 ---
 
@@ -141,7 +141,9 @@ private:
 **Trade-off:** a lease must be released exactly once; the deleter captures `this`, so the pool must
 outlive every lease. Document the shutdown order.
 
-## RAII / Lease
+## RAII handle
+
+*A lease is the common name for a borrowed resource; the handle returns it on destruction.*
 
 **Problem:** a resource (engine context, frame, scratch buffer, lock) must be released on every
 return path, including an error or a timeout.

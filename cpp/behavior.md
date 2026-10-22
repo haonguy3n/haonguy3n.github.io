@@ -5,8 +5,8 @@ permalink: /cpp/behavior/
 toc: true
 tags: [cpp, patterns]
 description: >-
-  Strategy, state, observer, template method, producer-consumer and active object, with the
-  concurrency and lifetime rules that make them safe in an always-on camera service.
+  Strategy, state, observer, template method, a bounded queue between threads and a worker thread
+  with a command queue, with the concurrency and lifetime rules that make them safe.
 ---
 
 {% include jetson-orin-style.html %}
@@ -152,7 +152,9 @@ steps need to be composed dynamically; use Strategy or a pipeline instead.
 **Trade-off:** inheritance couples the steps to the base. Keep the base small and do not call
 virtuals from the destructor.
 
-## Producer–Consumer
+## Bounded queue between threads
+
+*Also called: producer–consumer. The pattern is a queue with a known capacity, not an unbounded buffer.*
 
 **Problem:** a capture thread must not block on a slow consumer, and a consumer must stop promptly
 when the service stops.
@@ -202,7 +204,9 @@ acceptable. **Avoid** an unbounded queue: it turns a slow consumer into an out-o
 **Trade-off:** a mutex and a condition variable are simple and predictable; a lock-free ring is
 faster only after measurement. Always define what happens when the queue is full.
 
-## Active Object / Command
+## Worker thread with a command queue
+
+*Also called: Active Object, built from Command objects. The thread owns the queue; callers only submit.*
 
 **Problem:** a device call or a model run must happen on one worker thread, but callers arrive from
 several threads and must not block on the device.

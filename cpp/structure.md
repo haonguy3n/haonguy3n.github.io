@@ -5,8 +5,8 @@ permalink: /cpp/structure/
 toc: true
 tags: [cpp, patterns]
 description: >-
-  Ports and adapters, adapter, proxy, facade and pimpl, with small C++23 examples and the trade-offs
-  that decide when the extra indirection earns its place.
+  Interfaces and adapters, adapter, proxy, facade and pimpl, with small C++23 examples and the
+  trade-offs that decide when the extra indirection earns its place.
 ---
 
 {% include jetson-orin-style.html %}
@@ -17,7 +17,9 @@ description: >-
 > application: a port for a device, an adapter for a legacy class, a facade for a start-up sequence,
 > and a pimpl where a public header must stay C++11-clean.
 
-## Ports & Adapters
+## Interfaces and adapters
+
+*Also called: Ports & Adapters, or Hexagonal architecture.*
 
 **Problem:** the core logic needs a frame, a lens or an engine, but it must be testable on a PC and
 must not know whether the backend is TensorRT, a simulator or a fake.
@@ -149,7 +151,9 @@ facade that becomes a god object; if it has more than a handful of methods, spli
 
 **Trade-off:** the facade hides flexibility. Keep the lower-level pieces injectable for tests.
 
-## Pimpl
+## Pimpl: hide the implementation
+
+*The common C++ name is the Pimpl idiom (pointer to implementation).*
 
 **Problem:** a public header is consumed by a C++11 target, but the implementation uses C++23
 (`std::expected`, `std::span`, `std::format`) and should not leak those headers to the consumer.
