@@ -43,6 +43,9 @@ sees it.
 For the longer, hardware-agnostic background, see [Machine Learning on the Edge]({{ '/ml/' | relative_url }}):
 the field guide from ONNX to a CPU, GPU or NPU.
 
+The process side is in [Coding rules and PR checklist]({{ '/engineering/' | relative_url }}) — small
+changes, explicit ownership, tests that include a failure, measured claims and a rollback.
+
 ## The rules I keep coming back to
 
 1. **Build once, load many times.** A plan is a binary; the builder is a compiler. Treat the build as a

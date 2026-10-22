@@ -27,6 +27,7 @@ tabs:
   "jetson orin": Jetson Orin
   "inference on jetson orin": Inference on Jetson Orin
   "camera frames on jetson orin": Camera frames on Jetson Orin
+  "coding rules and pr checklist": Coding rules and PR checklist
 
 # the text displayed in the search bar & search results
 search:
