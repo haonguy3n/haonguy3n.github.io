@@ -3,6 +3,7 @@ title: Camera frames on Jetson Orin
 layout: page
 permalink: /jetson-orin/frames/
 toc: true
+tags: [jetson]
 description: >-
   A sensor-to-GPU frame path on Jetson Orin: NVMM, dmabuf, GStreamer caps, NvBufSurface views, GPU
   preprocessing, lifetime and the copies that hide in plain sight.

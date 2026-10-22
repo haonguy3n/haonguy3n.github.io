@@ -3,6 +3,7 @@ title: Inference on Jetson Orin
 layout: page
 permalink: /jetson-orin/inference/
 toc: true
+tags: [jetson]
 description: >-
   From ONNX to a TensorRT plan on Jetson Orin: build versus load, precision validation, memory, plan
   caching and the checklist I use before trusting a model on a device.

@@ -4,6 +4,7 @@ layout: page
 icon: fas fa-microchip
 order: 6
 toc: true
+tags: [jetson]
 description: >-
   Field notes on NVIDIA Jetson Orin for edge vision: TensorRT inference, precision and memory, and a
   camera frame path that stays in NVMM from the sensor to the GPU.
