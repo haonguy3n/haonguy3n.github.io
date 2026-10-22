@@ -13,15 +13,17 @@ description: >-
 
 > I learn a new SoC by following one frame from the sensor to the answer and naming every box it passes through.
 > This page is that path for a camera that reads licence plates. No calculus, no training run required — C++,
-> a terminal and curiosity are enough. Terms in **bold** are in the [glossary](#12-glossary).
+> a terminal and curiosity are enough. Terms in **bold** are in the [glossary](#sec-glossary).
 
 ## How to use this page
 
-- **10 minutes:** sections [1](#1-the-big-picture), [3](#3-inputs-the-models-abi) and [4](#4-outputs-numbers-into-answers).
-- **Porting to a new board:** [6](#6-precision-fp32-tf32-fp16-int8), [7](#7-hardware-cpu-gpu-dla-npu), [8](#8-memory-and-data-movement), [9](#9-porting-recipe).
-- **Testing yourself:** the [exercises](#10-exercises) and the [quiz](#11-quiz).
+- **10 minutes:** sections [1](#sec-big-picture), [3](#sec-inputs) and [4](#sec-outputs).
+- **Porting to a new board:** [6](#sec-precision), [7](#sec-hardware), [8](#sec-memory), [9](#sec-porting).
+- **Testing yourself:** the [exercises](#sec-exercises) and the [quiz](#sec-quiz).
 
-## 1. The big picture {#1-the-big-picture}
+<div id="sec-big-picture"></div>
+
+## 1. The big picture
 
 A model is a **graph of mathematical operations** (convolutions, additions, activations) plus millions of
 **weights** — numbers learned from data. The graph lives in an `.onnx` file. To run it, a device needs a compiler,
@@ -46,6 +48,8 @@ What a compiler does for you:
    same model can give slightly different bits;
 4. plans memory (weights, activations, workspace);
 5. applies the chosen **precision** (FP32, FP16, INT8…).
+
+<div id="sec-pipeline"></div>
 
 ## 2. One frame through a plate camera
 
@@ -72,7 +76,9 @@ Two numbers that do **not** mean what they look like:
 - `25` are **time steps**, not characters. **CTC** decoding collapses repeats and blanks, so 25 steps can
   produce a 7-character plate.
 
-## 3. Inputs: the model's ABI {#3-inputs-the-models-abi}
+<div id="sec-inputs"></div>
+
+## 3. Inputs: the model's ABI
 
 The camera gives bytes (`uint8`, 0–255). The model wants floats in a fixed shape. The config defines four things:
 
@@ -130,7 +136,9 @@ Rules that save hours:
 - A model trained with one mapping cannot be fed another (`std` vs `none` is not a small difference).
 - A gray model fed RGB (or the reverse) needs the channel conversion the config asks for.
 
-## 4. Outputs: numbers into answers {#4-outputs-numbers-into-answers}
+<div id="sec-outputs"></div>
+
+## 4. Outputs: numbers into answers
 
 A model almost never outputs the answer directly. It outputs **numbers**, and a decoder turns them into one.
 
@@ -156,6 +164,8 @@ The **output contract** is more than the shape: output names and order (`OUTPUT_
 already softmax (`softmax:0`) or raw logits. A decoder that applies softmax twice still gets the same argmax but
 wrong confidences.
 
+<div id="sec-training"></div>
+
 ## 5. Training vs inference
 
 - **Training** adjusts the weights: show an example, compare the output with the label, compute the **loss**, and
@@ -167,7 +177,9 @@ wrong confidences.
 - **Distribution shift** is why a model can be 98 % accurate in the lab and fail on your bench: IR vs colour,
   day vs night, rain, angle, plate material. Your data is not the training data.
 
-## 6. Precision: FP32, TF32, FP16, INT8 {#6-precision-fp32-tf32-fp16-int8}
+<div id="sec-precision"></div>
+
+## 6. Precision: FP32, TF32, FP16, INT8
 
 | Format | Bits (sign/exp/mantissa) | Range | Notes |
 |---|---|---|---|
@@ -194,7 +206,9 @@ non-finite values as hard failures, errors relative to the magnitude, and the cl
 are never bitwise identical: kernel selection changes too. Open-source tools such as
 [Polygraphy](https://github.com/NVIDIA/TensorRT/tree/main/tools/Polygraphy) do the same comparison on a PC.
 
-## 7. Hardware: CPU, GPU, DLA, NPU {#7-hardware-cpu-gpu-dla-npu}
+<div id="sec-hardware"></div>
+
+## 7. Hardware: CPU, GPU, DLA, NPU
 
 | Class | Examples | Precision | Toolchain | Strength | Limit |
 |---|---|---|---|---|---|
@@ -219,7 +233,9 @@ What changes when you port:
 4. **Memory** — NVMM on Jetson, dma-buf on i.MX, plain RAM on a CPU board. Zero-copy needs an adapter.
 5. **Post-processing** — keep NMS, CTC and softmax on the CPU; they are cheap, variable, and poorly supported on NPUs.
 
-## 8. Memory and data movement {#8-memory-and-data-movement}
+<div id="sec-memory"></div>
+
+## 8. Memory and data movement
 
 - **Weights** are the file size: a 14 M-parameter model is ~58 MB in FP32, ~29 MB in FP16, ~14 MB in INT8.
 - **Activations** are the scratch tensors during a run; they grow with batch and resolution.
@@ -231,7 +247,9 @@ What changes when you port:
 Measure per stage — capture, convert, preprocess, inference, postprocess, encode. The neural network is often not
 the biggest line.
 
-## 9. Porting recipe {#9-porting-recipe}
+<div id="sec-porting"></div>
+
+## 9. Porting recipe
 
 1. **Freeze a reference.** Run the ONNX in FP32 on the CPU over a fixed, camera-like set; store outputs *and*
    decoded decisions.
@@ -242,7 +260,9 @@ the biggest line.
 6. **Measure**: latency per stage, CPU load, RAM, power, and the **fallback count**.
 7. **Keep a safety net**: a sampled reference check and a permanent CPU path if the accelerator fails.
 
-## 10. Exercises {#10-exercises}
+<div id="sec-exercises"></div>
+
+## 10. Exercises
 
 <details markdown="0">
 <summary>1. How big is the input tensor?</summary>
@@ -272,7 +292,9 @@ i.MX 8M Plus NPU: INT8, because that is what the NPU accelerates. Always compare
 reference.</p>
 </details>
 
-## 11. Quiz {#11-quiz}
+<div id="sec-quiz"></div>
+
+## 11. Quiz
 
 <div class="mlg-quiz" id="mlg-quiz" markdown="0">
 
@@ -325,7 +347,9 @@ time. INT8 can help with the right instructions.</p>
 <p class="mlg-out" id="mlg-score"></p>
 </div>
 
-## 12. Glossary {#12-glossary}
+<div id="sec-glossary"></div>
+
+## 12. Glossary
 
 <dl class="mlg-dl" markdown="0">
 <dt>Activation</dt><dd>A tensor produced between layers; the runtime scratch memory.</dd>
@@ -356,6 +380,8 @@ time. INT8 can help with the right instructions.</p>
 <dt>Weights</dt><dd>The numbers learned by training; most of the model file.</dd>
 <dt>Zero-copy</dt><dd>The accelerator reads the camera buffer directly, without a memcpy.</dd>
 </dl>
+
+<div id="sec-reading"></div>
 
 ## 13. Reading
 
