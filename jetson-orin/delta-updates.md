@@ -122,6 +122,9 @@ Use the raw image above. Sign `sw-description` with the private signing key; ins
 swupdate -i update-2.0.0.swu
 ```
 
+On a device that runs the SWUpdate daemon, use the daemon's socket or web API instead; a second
+`swupdate -i` process can conflict with the running daemon.
+
 The bootloader environment decides which slot is active. The new slot is written first; the switch
 happens only after the image and the post-install checks pass.
 
