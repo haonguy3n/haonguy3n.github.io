@@ -11,7 +11,7 @@ description: >-
 
 {% include jetson-orin-style.html %}
 
-<p class="jo-back"><a href="{{ '/jetson-orin/' | relative_url }}">← Jetson Orin notes</a></p>
+<p class="jo-back"><a href="{{ '/jetson-orin/' | relative_url }}">← Jetson Orin notes</a> · <a href="{{ '/tags/jetson/' | relative_url }}">#jetson</a></p>
 
 
 > The short version: an ONNX file is source code, a TensorRT plan is a binary for one device and one set of

@@ -11,7 +11,7 @@ description: >-
 
 {% include jetson-orin-style.html %}
 
-<p class="jo-back"><a href="{{ '/jetson-orin/' | relative_url }}">← Jetson Orin notes</a></p>
+<p class="jo-back"><a href="{{ '/jetson-orin/' | relative_url }}">← Jetson Orin notes</a> · <a href="{{ '/tags/jetson/' | relative_url }}">#jetson</a></p>
 
 
 > The goal is simple to state and easy to lose: the sensor buffer should reach the GPU and the model

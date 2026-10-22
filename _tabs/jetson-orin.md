@@ -67,3 +67,5 @@ the field guide from ONNX to a CPU, GPU or NPU.
   The first note is about the model side; the second is about the pixels. They meet at one question:
   <em>what is the cheapest path from a sensor buffer to a TensorRT input?</em>
 </div>
+
+<p class="jo-caption">Tag: <a href="{{ '/tags/jetson/' | relative_url }}">#jetson</a></p>
