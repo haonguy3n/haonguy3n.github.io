@@ -1,0 +1,17 @@
+<style>
+  .jo-flow { display: flex; flex-wrap: wrap; align-items: stretch; gap: .55rem; margin: 1.25rem 0; }
+  .jo-step { flex: 1 1 9rem; min-width: 8.5rem; padding: .7rem .8rem; border: 1px solid var(--main-border-color, #d0d0d0); border-radius: .55rem; background: rgba(127, 127, 127, .07); }
+  .jo-step strong { display: block; font-size: .95rem; }
+  .jo-step span { display: block; margin-top: .2rem; font-size: .8rem; line-height: 1.35; opacity: .78; }
+  .jo-arrow { align-self: center; font-size: 1.15rem; opacity: .55; }
+  .jo-flow--col { flex-direction: column; }
+  .jo-flow--col .jo-arrow { align-self: center; }
+  .jo-note { border-left: 3px solid var(--main-border-color, #d0d0d0); padding: .15rem 0 .15rem .9rem; margin: 1rem 0; opacity: .95; }
+  .jo-back { font-size: .9rem; opacity: .85; }
+  .jo-caption { font-size: .8rem; opacity: .7; margin-top: .35rem; }
+  @media (max-width: 600px) {
+    .jo-flow { flex-direction: column; }
+    .jo-arrow { transform: rotate(90deg); }
+    .jo-flow--col .jo-arrow { transform: none; }
+  }
+</style>

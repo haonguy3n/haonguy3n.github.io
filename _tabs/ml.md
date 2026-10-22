@@ -9,6 +9,9 @@ description: >-
   inputs and outputs really are, and how to verify a precision change without breaking the product.
 ---
 
+> The hardware companion to this page is [Jetson Orin notes](/jetson-orin/): TensorRT builds, precision
+> validation and the sensor-to-GPU frame path.
+
 {% raw %}
 
 > I learn a new SoC by following one frame from the sensor to the answer and naming every box it passes through.

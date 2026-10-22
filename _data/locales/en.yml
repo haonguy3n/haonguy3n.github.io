@@ -23,6 +23,10 @@ tabs:
   about: About
   ml: Machine Learning on the Edge
   "machine learning on the edge": Machine Learning on the Edge
+  jetson-orin: Jetson Orin
+  "jetson orin": Jetson Orin
+  "inference on jetson orin": Inference on Jetson Orin
+  "camera frames on jetson orin": Camera frames on Jetson Orin
 
 # the text displayed in the search bar & search results
 search:
