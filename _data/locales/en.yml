@@ -28,6 +28,8 @@ tabs:
   "inference on jetson orin": Inference on Jetson Orin
   "camera frames on jetson orin": Camera frames on Jetson Orin
   "delta updates on jetson orin": Delta updates on Jetson Orin
+  "cuda .cu files on jetson orin": CUDA .cu files on Jetson Orin
+  "nvmm and nvbufsurface on jetson orin": NVMM and NvBufSurface on Jetson Orin
   "coding rules and pr checklist": Coding rules and PR checklist
   engineering: Engineering
   cpp: C++ Patterns

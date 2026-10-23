@@ -34,6 +34,10 @@ sees it.
 
 ## Trails
 
+- [CUDA `.cu` files on Jetson Orin]({{ '/jetson-orin/cuda/' | relative_url }}) — kernels, grids,
+  warps, the memory hierarchy, a public vectorAdd example and the build/error rules.
+- [NVMM and NvBufSurface on Jetson Orin]({{ '/jetson-orin/nvmm/' | relative_url }}) — one
+  DMA-capable buffer, the CPU/CUDA/dma-buf views, pitch vs block-linear, and synchronization.
 - [Delta updates on Jetson Orin]({{ '/jetson-orin/delta-updates/' | relative_url }}) — read-only root,
   raw ext4, A/B slots, SWUpdate/RAUC, and how to generate X → Y safely.
 - [Inference on Jetson Orin]({{ '/jetson-orin/inference/' | relative_url }}) — what a TensorRT build
